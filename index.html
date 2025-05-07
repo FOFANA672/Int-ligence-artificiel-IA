@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Chatbot IA simple</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+    #chatbox {
+      width: 100%;
+      max-width: 500px;
+      margin: auto;
+      background-color: white;
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 5px;
+      height: 400px;
+      overflow-y: auto;
+    }
+    .message {
+      margin: 10px 0;
+    }
+    .user {
+      color: blue;
+      font-weight: bold;
+    }
+    .bot {
+      color: green;
+      font-weight: bold;
+    }
+    input[type="text"] {
+      width: 80%;
+      padding: 10px;
+      margin-top: 10px;
+    }
+    button {
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Mini Chatbot IA</h2>
+<div id="chatbox"></div>
+
+<input type="text" id="userInput" placeholder="Pose une question...">
+<button onclick="talk()">Envoyer</button>
+
+<script>
+  function talk() {
+    const input = document.getElementById("userInput").value;
+    const chatbox = document.getElementById("chatbox");
+    
+    // Affiche la question de l'utilisateur
+    chatbox.innerHTML += `<div class="message"><span class="user">Vous :</span> ${input}</div>`;
+
+    let response = "Je ne comprends pas ta question.";
+
+    // Réponses prédéfinies
+    if (input.toLowerCase().includes("bonjour")) {
+      response = "Bonjour ! Comment puis-je t'aider ?";
+    } else if (input.toLowerCase().includes("comment tu t'appelles")) {
+      response = "Je suis un chatbot IA !";
+    } else if (input.toLowerCase().includes("que fais-tu")) {
+      response = "Je réponds aux questions simples !";
+    } else if (input.toLowerCase().includes("au revoir")) {
+      response = "À bientôt !";
+    }
+
+    // Affiche la réponse du bot
+    chatbox.innerHTML += `<div class="message"><span class="bot">IA :</span> ${response}</div>`;
+
+    // Vide l'input
+    document.getElementById("userInput").value = "";
+    
+    // Fait défiler vers le bas
+    chatbox.scrollTop = chatbox.scrollHeight;
+  }
+</script>
+
+</body>
+</html>
+
+</body>
+</html>
